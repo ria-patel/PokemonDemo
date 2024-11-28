@@ -66,6 +66,7 @@ class HomeView extends GetView<HomeController> {
                   crossAxisCount: 2,
                   crossAxisSpacing: 12,
                   mainAxisSpacing: 12,
+                  childAspectRatio: 1.1,
                 ),
                 itemBuilder: (context, index) {
                   HomeDataDto homeDataDto = controller.homeDataList[index];
@@ -82,7 +83,15 @@ class HomeView extends GetView<HomeController> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Expanded(
-                            child: CachedImage(imageUrl: imageDto.small ?? ''),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8),
+                              child: CachedImage(
+                                imageUrl: imageDto.small ?? '',
+                                fit: BoxFit.fitWidth,
+                                width: double.infinity,
+                                alignment: Alignment.topCenter,
+                              ),
+                            ),
                           ),
                           const SizedBox(height: 8),
                           Text(

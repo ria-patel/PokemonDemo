@@ -12,6 +12,7 @@ class CachedImage extends StatelessWidget {
   final double? width;
   final double? height;
   final BoxFit? fit;
+  final Alignment? alignment;
 
   const CachedImage({
     super.key,
@@ -19,6 +20,7 @@ class CachedImage extends StatelessWidget {
     this.width,
     this.height,
     this.fit,
+    this.alignment,
   });
 
   @override
@@ -28,6 +30,7 @@ class CachedImage extends StatelessWidget {
       height: height,
       imageUrl: imageUrl,
       fit: fit,
+      alignment: alignment ?? Alignment.center,
       placeholder: (_, __) => Container(
         height: 40,
         width: 40,
